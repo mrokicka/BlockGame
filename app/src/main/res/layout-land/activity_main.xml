@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score: 0"
+        android:textSize="50sp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/linearGridContainer"
+        android:layout_below="@id/scoreText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="top|center">
+
+        <GridLayout
+            android:id="@+id/column1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="1"
+            >
+
+        </GridLayout>
+
+        <GridLayout
+            android:id="@+id/column2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="1">
+
+
+        </GridLayout>
+
+        <GridLayout
+            android:id="@+id/column3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="1">
+
+
+        </GridLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="START"
+        android:clickable="true"
+        android:onClick="startGame"/>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/rounded_button"
+        android:text="RULES"
+        android:clickable="true"
+        android:onClick="getRules"
+        />
+
+
+</RelativeLayout>

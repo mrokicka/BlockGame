@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/scoreTextRules"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Score: 0"
+        android:textSize="50dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_below="@id/scoreTextRules"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The goal of this game is to remove those blocks from each of the columns. You must remove from the bottom of the columns, and you can remove up to 3 blocks at a time. If you are the last to remove every single block, you win; in other words, if you get rid of all the blocks on your turn, you win."
+        android:textSize="20dp"/>
+</RelativeLayout>
