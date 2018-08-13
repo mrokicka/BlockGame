@@ -2,6 +2,7 @@ package com.example.guest1.stackgame;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -82,7 +83,15 @@ public class MainActivity extends AppCompatActivity {
                     else
                         temp = c3;
 
-                    ImageView imageview = (ImageView) getLayoutInflater().inflate(R.layout.stack_stuff, temp, false);
+                    int orientation = this.getResources().getConfiguration().orientation;
+
+                    ImageView imageview;
+                    if(orientation == Configuration.ORIENTATION_PORTRAIT) {
+                        imageview = (ImageView) getLayoutInflater().inflate(R.layout.stack_stuff, temp, false);
+                    } else {
+                        imageview = (ImageView) getLayoutInflater().inflate(R.layout.stack_stuff_landscape, temp, false);
+                    }
+
                     temp.addView(imageview);
                     position.get(temp).add(imageview);
                 }
@@ -116,9 +125,18 @@ public class MainActivity extends AppCompatActivity {
                 else
                     temp = c3;
 
-                ImageView imageview = (ImageView) getLayoutInflater().inflate(R.layout.stack_stuff, temp, false);
+                int orientation = this.getResources().getConfiguration().orientation;
+
+                ImageView imageview;
+                if(orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    imageview = (ImageView) getLayoutInflater().inflate(R.layout.stack_stuff, temp, false);
+                } else {
+                    imageview = (ImageView) getLayoutInflater().inflate(R.layout.stack_stuff_landscape, temp, false);
+                }
+
                 temp.addView(imageview);
                 position.get(temp).add(imageview);
+
             }
 
         }
@@ -517,7 +535,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This is called either after the player's turn or before the player's first turn if they decided
-     * to not go first. It checks if the player or enemy has one, calls enemyTurn() and then allows the player
+     * to not go first. It checks if the player or enemy has won, calls enemyTurn() and then allows the player
      * to go again, and finally sets things up so that the game can be restarted if someone won.
      */
     public void updateGame() {
@@ -546,7 +564,7 @@ public class MainActivity extends AppCompatActivity {
      * The stuff needed to make sure we don't lose anything when we rotate the phone.
      * Unfortunately, even though the grids are saved successfully, I couldn't figure out how to
      * fit the blocks on the landscape screen that has smaller height.
-     * @param savedInstanceState
+     * @param savedInstanceState the saved data goes in here
      */
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
